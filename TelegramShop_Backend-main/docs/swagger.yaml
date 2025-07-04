@@ -1,0 +1,1636 @@
+basePath: /api/v1
+definitions:
+  models.BasketItem:
+    properties:
+      added_at:
+        type: string
+      product_id:
+        type: integer
+      quantity:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  models.BasketListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.BasketItem'
+        type: array
+      status:
+        example: success_user_basket_retrieved
+        type: string
+    type: object
+  models.BasketResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.BasketItem'
+      status:
+        example: success_item_added_to_basket
+        type: string
+    type: object
+  models.Category:
+    properties:
+      id:
+        type: integer
+      image:
+        type: string
+      name:
+        type: string
+    type: object
+  models.CategoryListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.Category'
+        type: array
+      status:
+        example: success_all_categories_retrieved
+        type: string
+    type: object
+  models.CategoryResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.Category'
+      status:
+        example: success_category_created
+        type: string
+    type: object
+  models.CountInput:
+    properties:
+      count:
+        type: integer
+    type: object
+  models.CreateOrder:
+    properties:
+      items:
+        items:
+          properties:
+            product_id:
+              type: integer
+            quantity:
+              type: integer
+          type: object
+        type: array
+      user_id:
+        type: integer
+    type: object
+  models.CreateUser:
+    properties:
+      telegram_id:
+        type: integer
+      username:
+        type: string
+    type: object
+  models.ErrorResponse:
+    properties:
+      data:
+        example: Invalid request body
+        type: string
+      status:
+        example: error_invalid_request_body
+        type: string
+    type: object
+  models.Favorite:
+    properties:
+      added_at:
+        type: string
+      product_id:
+        type: integer
+      user_id:
+        type: integer
+    type: object
+  models.FavoriteListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.Favorite'
+        type: array
+      status:
+        example: success_user_favorites_retrieved
+        type: string
+    type: object
+  models.FavoriteResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.Favorite'
+      status:
+        example: success_item_added_to_favorites
+        type: string
+    type: object
+  models.Firm:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  models.FirmListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.Firm'
+        type: array
+      status:
+        example: success_all_firms_retrieved
+        type: string
+    type: object
+  models.FirmResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.Firm'
+      status:
+        example: success_firm_created
+        type: string
+    type: object
+  models.ImageInput:
+    properties:
+      image:
+        example: https://example.com/image.jpg
+        type: string
+    type: object
+  models.ImagesInput:
+    properties:
+      images:
+        items:
+          type: string
+        type: array
+    type: object
+  models.OrderListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.OrderWithProducts'
+        type: array
+      status:
+        example: success_all_orders_retrieved
+        type: string
+    type: object
+  models.OrderProduct:
+    properties:
+      id:
+        type: integer
+      order_id:
+        type: integer
+      price:
+        type: number
+      product_id:
+        type: integer
+      quantity:
+        type: integer
+    type: object
+  models.OrderResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.OrderWithProducts'
+      status:
+        example: success_order_created
+        type: string
+    type: object
+  models.OrderWithProducts:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      products:
+        items:
+          $ref: '#/definitions/models.OrderProduct'
+        type: array
+      status:
+        type: string
+      user_id:
+        type: integer
+    type: object
+  models.Price:
+    properties:
+      count:
+        type: integer
+      id:
+        type: integer
+      price:
+        type: number
+      product_id:
+        type: integer
+    type: object
+  models.PriceListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.Price'
+        type: array
+      status:
+        example: success_prices_retrieved
+        type: string
+    type: object
+  models.PriceResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.Price'
+      status:
+        example: success_price_created
+        type: string
+    type: object
+  models.Product:
+    properties:
+      attributes:
+        type: object
+      category_id:
+        type: integer
+      description:
+        type: string
+      firm_id:
+        type: integer
+      id:
+        type: integer
+      image:
+        example:
+        - '["https://example.com/1.jpg"'
+        - '"https://example.com/2.jpg"]'
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      sell_count:
+        type: integer
+      stock:
+        type: integer
+    type: object
+  models.ProductListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.Product'
+        type: array
+      status:
+        example: success_all_products_retrieved
+        type: string
+    type: object
+  models.ProductResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.Product'
+      status:
+        example: success_product_created
+        type: string
+    type: object
+  models.StockInput:
+    properties:
+      stock:
+        type: integer
+    type: object
+  models.SuccessResponse:
+    properties:
+      data: {}
+      status:
+        example: success_operation_completed
+        type: string
+    type: object
+  models.UpdateCategoryInput:
+    properties:
+      image:
+        type: string
+      name:
+        type: string
+    type: object
+  models.UpdateFirmInput:
+    properties:
+      name:
+        type: string
+    type: object
+  models.UpdatePriceCount:
+    properties:
+      new_count:
+        example: 15
+        type: integer
+    type: object
+  models.UpdatePriceInput:
+    properties:
+      count:
+        type: integer
+      price:
+        type: number
+    type: object
+  models.UpdateProductInput:
+    properties:
+      attributes:
+        additionalProperties: true
+        type: object
+      category_id:
+        type: integer
+      description:
+        type: string
+      firm_id:
+        type: integer
+      image:
+        example:
+        - '["https://example.com/1.jpg"'
+        - ' "https://example.com/2.jpg"]'
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      stock:
+        type: integer
+    type: object
+  models.User:
+    properties:
+      created_at:
+        type: string
+      id:
+        type: integer
+      telegram_id:
+        type: integer
+      username:
+        type: string
+    type: object
+  models.UserListResponse:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/models.User'
+        type: array
+      status:
+        example: success_all_users_retrieved
+        type: string
+    type: object
+  models.UserResponse:
+    properties:
+      data:
+        $ref: '#/definitions/models.User'
+      status:
+        example: success_user_created
+        type: string
+    type: object
+externalDocs:
+  description: OpenAPI
+  url: https://swagger.io/resources/open-api/
+host: http://194.187.122.144:5656/
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is a backend API for TelegramShop application
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: TelegramShop Backend API
+  version: "1.0"
+paths:
+  /api/v1/basket:
+    post:
+      consumes:
+      - application/json
+      description: Adds a product to user's basket
+      parameters:
+      - description: Basket item data
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/models.BasketItem'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Item successfully added to basket
+          schema:
+            $ref: '#/definitions/models.BasketResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Add item to basket
+      tags:
+      - basket
+    put:
+      consumes:
+      - application/json
+      description: Updates quantity of product in user's basket
+      parameters:
+      - description: Updated basket item data
+        in: body
+        name: item
+        required: true
+        schema:
+          $ref: '#/definitions/models.BasketItem'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Basket item successfully updated
+          schema:
+            $ref: '#/definitions/models.BasketResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update basket item
+      tags:
+      - basket
+  /api/v1/basket/{user_id}:
+    get:
+      description: Returns all items in user's basket
+      parameters:
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User's basket retrieved
+          schema:
+            $ref: '#/definitions/models.BasketListResponse'
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get user's basket
+      tags:
+      - basket
+  /api/v1/basket/{user_id}/{product_id}:
+    delete:
+      description: Removes product from user's basket
+      parameters:
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: integer
+      - description: Product ID
+        in: path
+        name: product_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Item successfully removed from basket
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid parameters
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Remove item from basket
+      tags:
+      - basket
+  /api/v1/categories:
+    get:
+      description: Returns all categories in the system
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: All categories retrieved successfully
+          schema:
+            $ref: '#/definitions/models.CategoryListResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all categories
+      tags:
+      - categories
+    post:
+      consumes:
+      - application/json
+      description: Creates a new category with specified details
+      parameters:
+      - description: Category creation data
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/models.Category'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category successfully created
+          schema:
+            $ref: '#/definitions/models.CategoryResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create new category
+      tags:
+      - categories
+  /api/v1/categories/{id}:
+    delete:
+      description: Deletes a category by its ID
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category successfully deleted
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid category ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete category
+      tags:
+      - categories
+    get:
+      description: Returns category details by its ID
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category retrieved successfully
+          schema:
+            $ref: '#/definitions/models.CategoryResponse'
+        "400":
+          description: Invalid category ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get category by ID
+      tags:
+      - categories
+    put:
+      consumes:
+      - application/json
+      description: Updates category details by its ID
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated category data
+        in: body
+        name: category
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateCategoryInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category successfully updated
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update category
+      tags:
+      - categories
+  /api/v1/categories/{id}/image:
+    delete:
+      description: Removes the image from a category
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category image successfully removed
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid category ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Remove category image
+      tags:
+      - categories
+    put:
+      consumes:
+      - application/json
+      description: Sets or updates the image for a category
+      parameters:
+      - description: Category ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Image data
+        in: body
+        name: image
+        required: true
+        schema:
+          $ref: '#/definitions/models.ImageInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Category image successfully set
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Set category image
+      tags:
+      - categories
+  /api/v1/favorites:
+    post:
+      consumes:
+      - application/json
+      description: Adds a product to user's favorites list
+      parameters:
+      - description: Favorite item data
+        in: body
+        name: favorite
+        required: true
+        schema:
+          $ref: '#/definitions/models.Favorite'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Item successfully added to favorites
+          schema:
+            $ref: '#/definitions/models.FavoriteResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Add item to favorites
+      tags:
+      - favorites
+  /api/v1/favorites/{user_id}:
+    get:
+      description: Returns all items in user's favorites list
+      parameters:
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User's favorites retrieved
+          schema:
+            $ref: '#/definitions/models.FavoriteListResponse'
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get user's favorites
+      tags:
+      - favorites
+  /api/v1/favorites/{user_id}/{product_id}:
+    delete:
+      description: Removes product from user's favorites list
+      parameters:
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: integer
+      - description: Product ID
+        in: path
+        name: product_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Item successfully removed from favorites
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid parameters
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Remove item from favorites
+      tags:
+      - favorites
+  /api/v1/firms:
+    get:
+      description: Returns all firms in the system
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: All firms retrieved successfully
+          schema:
+            $ref: '#/definitions/models.FirmListResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all firms
+      tags:
+      - firms
+    post:
+      consumes:
+      - application/json
+      description: Creates a new firm with specified details
+      parameters:
+      - description: Firm creation data
+        in: body
+        name: firm
+        required: true
+        schema:
+          $ref: '#/definitions/models.Firm'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Firm successfully created
+          schema:
+            $ref: '#/definitions/models.FirmResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create new firm
+      tags:
+      - firms
+  /api/v1/firms/{id}:
+    delete:
+      description: Deletes a firm by its ID
+      parameters:
+      - description: Firm ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Firm successfully deleted
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid firm ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete firm
+      tags:
+      - firms
+    get:
+      description: Returns firm details by its ID
+      parameters:
+      - description: Firm ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Firm retrieved successfully
+          schema:
+            $ref: '#/definitions/models.FirmResponse'
+        "400":
+          description: Invalid firm ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "404":
+          description: Firm not found
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get firm by ID
+      tags:
+      - firms
+    put:
+      consumes:
+      - application/json
+      description: Updates firm details by its ID
+      parameters:
+      - description: Firm ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated firm data
+        in: body
+        name: firm
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateFirmInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Firm successfully updated
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update firm
+      tags:
+      - firms
+  /api/v1/orders:
+    post:
+      consumes:
+      - application/json
+      description: Creates a new order for a user with specified products
+      parameters:
+      - description: Order creation data
+        in: body
+        name: order
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateOrder'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Order successfully created
+          schema:
+            $ref: '#/definitions/models.OrderResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create new order
+      tags:
+      - orders
+  /api/v1/orders/{id}:
+    get:
+      description: Returns order details with all products
+      parameters:
+      - description: Order ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Order retrieved successfully
+          schema:
+            $ref: '#/definitions/models.OrderResponse'
+        "400":
+          description: Invalid order ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get order by ID
+      tags:
+      - orders
+  /api/v1/orders/all:
+    get:
+      description: Returns all orders in the system
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: All orders retrieved successfully
+          schema:
+            $ref: '#/definitions/models.OrderListResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all orders
+      tags:
+      - orders
+  /api/v1/orders/user/{user_id}:
+    get:
+      description: Returns all orders for a specific user
+      parameters:
+      - description: User ID
+        in: path
+        name: user_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User's orders retrieved successfully
+          schema:
+            $ref: '#/definitions/models.OrderListResponse'
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get user's orders
+      tags:
+      - orders
+  /api/v1/prices:
+    post:
+      consumes:
+      - application/json
+      description: Creates a new price with specified details
+      parameters:
+      - description: Price creation data
+        in: body
+        name: price
+        required: true
+        schema:
+          $ref: '#/definitions/models.Price'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Price successfully created
+          schema:
+            $ref: '#/definitions/models.PriceResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create new price
+      tags:
+      - prices
+  /api/v1/prices/{id}:
+    delete:
+      description: Deletes a price by its ID
+      parameters:
+      - description: Price ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Price successfully deleted
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid price ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete price
+      tags:
+      - prices
+    get:
+      description: Returns price details by its ID
+      parameters:
+      - description: Price ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Price retrieved successfully
+          schema:
+            $ref: '#/definitions/models.PriceResponse'
+        "400":
+          description: Invalid price ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get price by ID
+      tags:
+      - prices
+    put:
+      consumes:
+      - application/json
+      description: Updates price details by its ID
+      parameters:
+      - description: Price ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated price data
+        in: body
+        name: price
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdatePriceInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Price successfully updated
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update price
+      tags:
+      - prices
+  /api/v1/prices/{id}/count:
+    put:
+      consumes:
+      - application/json
+      description: Updates the count for a specific price
+      parameters:
+      - description: Price ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: New count value
+        in: body
+        name: count
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdatePriceCount'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Price count successfully updated
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update price count
+      tags:
+      - prices
+  /api/v1/prices/product/{product_id}:
+    delete:
+      description: Deletes all prices associated with a specific product
+      parameters:
+      - description: Product ID
+        in: path
+        name: product_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Prices successfully deleted
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid product ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete prices by product ID
+      tags:
+      - prices
+    get:
+      description: Returns all prices for a specific product
+      parameters:
+      - description: Product ID
+        in: path
+        name: product_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Prices retrieved successfully
+          schema:
+            $ref: '#/definitions/models.PriceListResponse'
+        "400":
+          description: Invalid product ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get prices by product ID
+      tags:
+      - prices
+  /api/v1/products:
+    get:
+      description: Returns all products in the system
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: All products retrieved successfully
+          schema:
+            $ref: '#/definitions/models.ProductListResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all products
+      tags:
+      - products
+    post:
+      consumes:
+      - application/json
+      description: Creates a new product with specified details
+      parameters:
+      - description: Product creation data
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/models.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product successfully created
+          schema:
+            $ref: '#/definitions/models.ProductResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create new product
+      tags:
+      - products
+  /api/v1/products/{id}:
+    delete:
+      description: Deletes a product by its ID
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product successfully deleted
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid product ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete product
+      tags:
+      - products
+    get:
+      description: Returns product details by its ID
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product retrieved successfully
+          schema:
+            $ref: '#/definitions/models.Product'
+        "400":
+          description: Invalid product ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get product by ID
+      tags:
+      - products
+    put:
+      consumes:
+      - application/json
+      description: Updates product details by its ID
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Updated product data
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/models.UpdateProductInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product successfully updated
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update product
+      tags:
+      - products
+  /api/v1/products/{id}/images:
+    delete:
+      consumes:
+      - application/json
+      description: Removes an image from a product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Image data to remove
+        in: body
+        name: image
+        required: true
+        schema:
+          $ref: '#/definitions/models.ImagesInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product image successfully removed
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Remove product image
+      tags:
+      - products
+    post:
+      consumes:
+      - application/json
+      description: Adds a new image to a product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Image data
+        in: body
+        name: image
+        required: true
+        schema:
+          $ref: '#/definitions/models.ImagesInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product image successfully added
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Add product image
+      tags:
+      - products
+    put:
+      consumes:
+      - application/json
+      description: Sets all images for a product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Array of image data
+        in: body
+        name: images
+        required: true
+        schema:
+          $ref: '#/definitions/models.ImagesInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Product images successfully set
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Set product images
+      tags:
+      - products
+  /api/v1/products/{id}/sell-count:
+    put:
+      consumes:
+      - application/json
+      description: Increments the sell count for a product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Count to increment
+        in: body
+        name: count
+        required: true
+        schema:
+          $ref: '#/definitions/models.CountInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Sell count successfully incremented
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Increment sell count
+      tags:
+      - products
+  /api/v1/products/{id}/stock:
+    put:
+      consumes:
+      - application/json
+      description: Updates the stock count for a product
+      parameters:
+      - description: Product ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: New stock value
+        in: body
+        name: stock
+        required: true
+        schema:
+          $ref: '#/definitions/models.StockInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Stock successfully updated
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Update stock
+      tags:
+      - products
+  /api/v1/users:
+    get:
+      description: Returns all users in the system
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: All users retrieved successfully
+          schema:
+            $ref: '#/definitions/models.UserListResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get all users
+      tags:
+      - users
+    post:
+      consumes:
+      - application/json
+      description: Creates a new user in the system
+      parameters:
+      - description: User creation data
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.CreateUser'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User successfully created
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "400":
+          description: Invalid request body
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Create new user
+      tags:
+      - users
+  /api/v1/users/{id}:
+    delete:
+      description: Deletes a user from the system
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User successfully deleted
+          schema:
+            $ref: '#/definitions/models.SuccessResponse'
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Delete user
+      tags:
+      - users
+    get:
+      description: Returns user details by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: User retrieved successfully
+          schema:
+            $ref: '#/definitions/models.UserResponse'
+        "400":
+          description: Invalid user ID
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+        "500":
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/models.ErrorResponse'
+      summary: Get user by ID
+      tags:
+      - users
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
