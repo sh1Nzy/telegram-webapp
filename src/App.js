@@ -20,8 +20,8 @@ function App() {
 
   return (
     <div style={{ padding: 20 }}>
-      <h1>Hello, {user?.first_name || "Unknown"}!</h1>
-      <p>Welcome to Telegram Web App!</p>
+      <h1 style={{ color: white }}>Hello, {user?.first_name || "Unknown"}!</h1>
+      <p style={{ color: white }}>Welcome to Telegram Web App!</p>
     </div>
   );
 }
