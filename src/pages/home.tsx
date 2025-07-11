@@ -1,19 +1,25 @@
 import React from "react";
 import ProductCard from "../components/ProductCard";
-// import "../style/home";
+import "../style/home.css";
 
 const Home: React.FC = () => {
     const products = [
-    {
-        title: "Игровая приставка Xbox Series X 1Tb",
-        price: 59000,
-        image: "/images/xbox-x.png"
-    },
-    {
-        title: "Игровая приставка Xbox Series S 512gb",
-        price: 39000,
-        image: "/images/xbox-s.png"
-    }
+        {
+            id: "xbox-series-x",
+            title: "Игровая приставка Xbox Series X 1Tb",
+            price: 59000,
+            image: "xbox-x.png",
+            rating: 4.7,
+            inStock: true
+        },
+        {
+            id: "xbox-series-s",
+            title: "Игровая приставка Xbox Series S 512gb",
+            price: 39000,
+            image: "xbox-s.png",
+            rating: 4.4,
+            inStock: false
+        }
     ];
 
     return (
@@ -24,10 +30,20 @@ const Home: React.FC = () => {
                 placeholder="Поиск товаров"
                 className="search-input"
             />
-            <p className="section-title">Выбор покупателей</p>
-            {products.map((p, i) => (
-                <ProductCard key={i} {...p} />
-            ))}
+            <div className="product-list">
+                <p className="section-title">Выбор покупателей</p>
+                {products.map((p, i) => (
+                    <ProductCard
+                        key={i}
+                        id={p.id}
+                        title={p.title}
+                        price={p.price}
+                        image={`/images/${p.image}`}
+                        rating={p.rating ?? 5.0}
+                        inStock={p.inStock ?? true}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

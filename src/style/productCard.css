@@ -1,52 +1,114 @@
 .product-card {
   display: flex;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-  margin: 10px 0;
-  padding: 10px;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 16px 14px;
+  margin: 0;
+  align-items: center;
 }
 
 .product-image {
   width: 80px;
-  height: auto;
+  height: 80px;
   object-fit: contain;
-  margin-right: 12px;
+  margin-right: 18px;
 }
 
 .product-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
 }
 
 .product-meta {
   display: flex;
-  gap: 10px;
-  font-size: 14px;
-  color: green;
+  gap: 6px;
+  font-size: 0.95rem;
+  color: #3bb33b;
+  align-items: center;
 }
 
 .product-price {
   font-weight: bold;
-  margin: 6px 0;
-  color: #800080;
+  color: #222;
+  font-size: 1.08rem;
+  margin: 8px 0 0 0;
 }
 
 .product-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-top: 10px;
 }
 
 .add-to-cart {
   background: #a349a4;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 7px 18px;
   border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.favorite {
+.add-to-cart:hover {
+  background: #8d3a8d;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.product-rating .star {
+  color: #fbc02d;
+  font-size: 1.1em;
+}
+
+.product-rating-value {
+  color: #222;
+  margin-left: 4px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.add-to-fav {
   background: none;
   border: none;
-  font-size: 18px;
+  color: grey;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  font-weight: 500;
+  width: 44px;      /* делаем ширину и высоту как у .add-to-cart */
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color 0.2s;
+  margin-right: 0;
+  padding: 0;
+}
+
+.add-to-fav:hover {
+  color: #800080;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
 }

@@ -1,0 +1,143 @@
+.cart-container {
+  background: #f6f6f6;
+  min-height: 100vh;
+  padding: 24px 0 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.cart-empty-icon img {
+  width: 180px;
+  height: 170px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.cart-empty-title {
+  font-size: 2rem;
+  color: #bbb;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.cart-empty-desc {
+  color: #888;
+  font-size: 1.1rem;
+}
+
+.cart-empty-link {
+  color: #a349a4;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cart-full {
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 14px 12px;
+  margin-bottom: 16px;
+}
+
+.cart-item-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-right: 14px;
+}
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-item-controls button {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  background: #f6f6f6;
+  font-size: 1.2rem;
+  color: #a349a4;
+  cursor: pointer;
+}
+
+.cart-item-price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #222;
+  margin-left: 12px;
+}
+
+.cart-summary {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 18px 14px;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cart-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.cart-promo {
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 8px 12px;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.cart-checkout {
+  background: #a349a4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cart-checkout:hover {
+  background: #800080;
+}

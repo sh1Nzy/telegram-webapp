@@ -2,6 +2,10 @@ import './App.css';
 import { Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Home from "./pages/home";
+import BottomNav from './components/BottomNav';
+import Catalog from './pages/catalog';
+import { CategoryPage } from './pages/category';
+import Cart from './pages/basket';
 
 function App() {
   
@@ -20,14 +24,16 @@ function App() {
   }, []);
 
   return (
+    <>
     <Routes>
       <Route path="/" element={<Home />}></Route>
-      
+      <Route path="/catalog" element={<Catalog />} />
+      <Route path="/category/:categoryId" element={<CategoryPage />} />
+      <Route path="/basket" element={<Cart />} />
+      {/* <Route path="/favorites" element={<Favorites />} /> */}
     </Routes>
-    // <div style={{ padding: 20 }}>
-    //   <h1>Hello, {user?.first_name || "Unknown"}!</h1>
-    //   <p>Welcome to Telegram Web App!</p>
-    // </div>
+    <BottomNav/>
+    </>
   );
 }
 

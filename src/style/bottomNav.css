@@ -1,0 +1,41 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 12px;
+  text-decoration: none;
+  flex: 1;
+  padding: 6px 0;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-item svg {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+/* ПОДСВЕТКА АКТИВНОГО ПУНКТА */
+.nav-item.active {
+  color: #9b59b6; /* Пурпурный */
+}
+
+.nav-item.active svg {
+  stroke: #9b59b6;
+}

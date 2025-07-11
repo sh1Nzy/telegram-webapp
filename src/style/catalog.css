@@ -1,0 +1,126 @@
+.catalog-container {
+  background: #f6f6f6;
+  min-height: 100vh;
+  padding: 24px 0 80px 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h-home {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.catalog-grid a {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 8px 12px 8px;
+  text-decoration: none;
+  color: #222;
+  transition: box-shadow 0.2s;
+}
+
+.catalog-grid a:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.catalog-grid img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.catalog-grid span {
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.category-container {
+  background: #f6f6f6;
+  min-height: 100vh;
+  padding: 24px 0 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subcategory-scroll {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto 18px auto;
+  padding-bottom: 4px;
+}
+
+.subcategory-chip {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: 8px;
+  min-width: 90px;
+  transition: box-shadow 0.2s;
+}
+
+.subcategory-chip img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.category-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 90%;
+  max-width: 400px;
+  margin: 0 auto 18px auto;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: #222;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: 6px;
+}
+
+.filter-icon {
+  font-size: 1.2rem;
+}
+
+.sort-select {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  padding: 6px 12px;
+  font-size: 1rem;
+  background: #fff;
+}
