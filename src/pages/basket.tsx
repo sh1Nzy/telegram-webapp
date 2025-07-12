@@ -1,11 +1,11 @@
 import React from "react";
 import "../style/basket.css";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const Cart: React.FC = () => {
   const { cartItems } = useCart();
   const isEmpty = cartItems.length === 0;
-
   return (
     <div className="cart-container">
       <h1 className="h-home">Корзина</h1>
@@ -17,7 +17,7 @@ const Cart: React.FC = () => {
           </div>
           <div className="cart-empty-title">Ваша корзина пуста</div>
           <div className="cart-empty-desc">
-            <span><a href="/" className="cart-empty-link">Нажмите здесь</a>, чтобы продолжить покупки</span>
+            <span><Link to="/" className="cart-empty-link">Нажмите здесь</Link>, чтобы продолжить покупки</span>
           </div>
         </div>
       ) : (

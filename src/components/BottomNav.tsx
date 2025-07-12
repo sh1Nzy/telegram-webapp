@@ -4,7 +4,7 @@ import { GiStack } from 'react-icons/gi';
 import { AiOutlineShoppingCart } from 'react-icons/ai'; 
 import { BiHeart } from 'react-icons/bi'; 
 import { IconType } from "react-icons";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../style/bottomNav.css";
 
 type NavItem = {
@@ -33,14 +33,14 @@ const BottomNav: React.FC = () => {
         const isActive = location.pathname === path;
 
         return (
-          <a
+          <Link
             key={path}
-            href={path}
+            to={path}
             className={`nav-item ${isActive ? "active" : ""}`}
           >
             <IconWrapper icon={icon} size={22} />
             <span>{label}</span>
-          </a>
+          </Link>
         );
       })}
     </nav>

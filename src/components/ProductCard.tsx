@@ -14,6 +14,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, rating, inStock }) => {
     const { addToCart } = useCart();
+    console.log("ProductCard rendered", id);
 
     return (
         <div className="product-card">
@@ -35,7 +36,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, rati
                     <button
                         className="add-to-cart"
                         disabled={!inStock}
-                        onClick={() => addToCart({ id, title, price, image })}
+                        onClick={() => {
+                            addToCart({ id, title, price, image });
+                            console.log("addToCart called", id);
+                        }}
                     >
                         В корзину
                     </button>

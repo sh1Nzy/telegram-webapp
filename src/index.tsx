@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { CartProvider } from './context/CartContext'; // Импортируй CartProvider
+import { CartProvider } from './context/CartContext'; 
 
 const container = document.getElementById('root') as HTMLElement;
 const root = ReactDOM.createRoot(container);
+console.log("App loaded/reloaded");
 root.render(
   <React.StrictMode>
     <BrowserRouter>
