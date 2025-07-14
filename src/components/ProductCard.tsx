@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
+import { useFavorites } from "../context/FavoritesContext";
 import "../style/home.css";
 import "../style/productCard.css";
 
@@ -10,10 +11,14 @@ interface ProductCardProps {
     image: string;
     rating: number;
     inStock: boolean;
+    favoriteMode?: boolean; 
+    onRemoveFavorite?: () => void; 
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, rating, inStock }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, rating, inStock, favoriteMode, onRemoveFavorite }) => {
     const { addToCart } = useCart();
+    const { favorites, addFavorite, removeFavorite } = useFavorites();
+    const isFavorite = favorites.some(fav => fav.id === id);
     console.log("ProductCard rendered", id);
 
     return (
@@ -32,14 +37,32 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, rati
                 </div>
                 <div className="product-price">Цена: {price.toLocaleString()} руб.</div>
                 <div className="product-actions">
-                    <button className="add-to-fav" title="В избранное">♡</button>
+                    {favoriteMode ? (
+                        <button
+                            className="remove-favorite"
+                            title="Удалить из избранного"
+                            onClick={onRemoveFavorite}
+                        >
+                            🗑
+                        </button>
+                    ) : (
+                        <button
+                            className="add-to-fav"
+                            title={isFavorite ? "Убрать из избранного" : "В избранное"}
+                            onClick={() => {
+                                isFavorite
+                                    ? removeFavorite(id)
+                                    : addFavorite({ id, title, price, image, rating, inStock });
+                            }}
+                            style={{ color: isFavorite ? "#a349a4" : "grey" }}
+                        >
+                            {isFavorite ? "♥" : "♡"}
+                        </button>
+                    )}
                     <button
                         className="add-to-cart"
                         disabled={!inStock}
-                        onClick={() => {
-                            addToCart({ id, title, price, image });
-                            console.log("addToCart called", id);
-                        }}
+                        onClick={() => addToCart({ id, title, price, image })}
                     >
                         В корзину
                     </button>

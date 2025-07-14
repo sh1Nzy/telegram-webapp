@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { CartProvider } from './context/CartContext'; 
+import { CartProvider } from './context/CartContext';
+import { FavoritesProvider } from './context/FavoritesContext';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = ReactDOM.createRoot(container);
@@ -11,9 +12,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <CartProvider>
-        <App />
+        <FavoritesProvider>
+          <App />
+        </FavoritesProvider>
       </CartProvider>
-    </BrowserRouter>  
+    </BrowserRouter>
   </React.StrictMode>
 );
 

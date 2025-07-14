@@ -6,6 +6,7 @@
   padding: 16px 14px;
   margin: 0;
   align-items: center;
+  position: relative;
 }
 
 .product-image {
@@ -37,6 +38,15 @@
   align-items: center;
 }
 
+.in-stock {
+  color: #3bb33b;
+}
+
+.out-of-stock {
+  color: #d32f2f;
+  font-weight: 500;
+}
+
 .product-price {
   font-weight: bold;
   color: #222;
@@ -45,19 +55,35 @@
 }
 
 .product-actions {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+  width: 100%;
+  justify-content: flex-start;
 }
-
 .add-to-cart {
   background: #a349a4;
-  color: white;
+  color: #fff;
   border: none;
-  padding: 7px 18px;
+  padding: 7px 24px;
   border-radius: 8px;
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
+  min-width: 120px;
+  margin: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-cart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .add-to-cart:hover {
@@ -91,7 +117,7 @@
   font-size: 1.3rem;
   border-radius: 8px;
   font-weight: 500;
-  width: 44px;      /* делаем ширину и высоту как у .add-to-cart */
+  width: 44px;      
   height: 38px;
   display: flex;
   align-items: center;
@@ -106,9 +132,37 @@
   color: #800080;
 }
 
-.product-actions {
+.remove-favorite {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 0;
+  align-self: flex-start;
+  transition: color 0.2s;
   display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+.remove-favorite:hover {
+  color: #a349a4;
+}
+
+.continue-shopping {
+  background: none;
+  border: none;
+  color: #888;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 12px;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.continue-shopping:hover {
+  color: #a349a4;
 }

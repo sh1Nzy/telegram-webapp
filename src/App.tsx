@@ -6,6 +6,7 @@ import BottomNav from './components/BottomNav';
 import Catalog from './pages/catalog';
 import { CategoryPage } from './pages/category';
 import Cart from './pages/basket';
+import Favorites from "./pages/favorites";
 
 function App() {
   
@@ -30,7 +31,7 @@ function App() {
       <Route path="/catalog" element={<Catalog />} />
       <Route path="/category/:categoryId" element={<CategoryPage />} />
       <Route path="/basket" element={<Cart />} />
-      {/* <Route path="/favorites" element={<Favorites />} /> */}
+      <Route path="/favorites" element={<Favorites />} />
     </Routes>
     <BottomNav/>
     </>
