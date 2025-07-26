@@ -8,6 +8,7 @@ import { CategoryPage } from './pages/category';
 import Cart from './pages/basket';
 import Favorites from "./pages/favorites";
 import Ordering from "./pages/ordering";
+import Checkout from "./pages/checkout";
 
 function App() {
   
@@ -34,6 +35,7 @@ function App() {
       <Route path="/basket" element={<Cart />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/ordering" element={<Ordering />} />
+      <Route path="/checkout" element={<Checkout />} />
     </Routes>
     <BottomNav/>
     </>
