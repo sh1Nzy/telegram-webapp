@@ -7,6 +7,7 @@ import Catalog from './pages/catalog';
 import { CategoryPage } from './pages/category';
 import Cart from './pages/basket';
 import Favorites from "./pages/favorites";
+import Ordering from "./pages/ordering";
 
 function App() {
   
@@ -32,6 +33,7 @@ function App() {
       <Route path="/category/:categoryId" element={<CategoryPage />} />
       <Route path="/basket" element={<Cart />} />
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="/ordering" element={<Ordering />} />
     </Routes>
     <BottomNav/>
     </>
