@@ -44,7 +44,7 @@ const Cart: React.FC = () => {
               </span>
             </div>
             <input className="cart-promo" placeholder="Есть промокод?" />
-            <button className="cart-checkout">Перейти к оформлению</button>
+            <Link to="/ordering" className="cart-checkout">Перейти к оформлению</Link>
           </div>
         </div>
       )}
