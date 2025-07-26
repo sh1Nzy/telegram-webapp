@@ -3,6 +3,7 @@ import { useCart } from "../context/CartContext";
 import { useFavorites } from "../context/FavoritesContext";
 import "../style/home.css";
 import "../style/productCard.css";
+import { useNavigate } from "react-router-dom";
 
 interface ProductCardProps {
     id: string;
@@ -19,10 +20,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, rati
     const { addToCart } = useCart();
     const { favorites, addFavorite, removeFavorite } = useFavorites();
     const isFavorite = favorites.some(fav => fav.id === id);
+    const navigate = useNavigate();
     console.log("ProductCard rendered", id);
 
     return (
-        <div className="product-card">
+        <div className="product-card" onClick={() => navigate(`/product/${id}`)} style={{ cursor: "pointer" }}>
             <img src={image} alt={title} className="product-image" />
             <div className="product-info">
                 <div className="product-title">{title}</div>
@@ -62,7 +64,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ id, title, price, image, rati
                     <button
                         className="add-to-cart"
                         disabled={!inStock}
-                        onClick={() => addToCart({ id, title, price, image })}
+                        onClick={(event) => {
+                            event.stopPropagation();
+                            addToCart({ id, title, price, image });
+                        }}
                     >
                         В корзину
                     </button>
